@@ -198,7 +198,7 @@ button.resetCatg:hover,
 .start:hover,
 .next:hover,
 .previous:hover,
-.nextQuestion:hover {
+.nextQuestion:hover,.category:hover {
   background-color: #022a02;
   color: white;
   cursor: pointer;

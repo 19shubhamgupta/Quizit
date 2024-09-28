@@ -58,17 +58,12 @@ category.forEach((c) => {
 
 // getting quiz data from api
 const getQuiz = async (url) => {
-  console.log("geting data");
   let response = await fetch(url);
-  console.log(response);
   let data = await response.json();
-  console.log(data);
   apiDataGlobal = data;
   ques_ans(data, 0);
-  for (let index = 0; index < 10; index++) {
-    console.log(data.results[index].correct_answer);
-  }
 };
+
 function rightEventHandler(e) {
   scores++;
   updateScore(scores);
@@ -87,7 +82,6 @@ function wrongEventHandler(e) {
 // update question and answers
 function ques_ans(apiData, k) {
   questionUpdt.innerText = decodeHtmlEntities(apiData.results[k].question);
-  console.log(k);
   let x = Math.floor(Math.random() * 4);
   let j = 0;
 
@@ -111,7 +105,6 @@ function ques_ans(apiData, k) {
 nextQuestion.addEventListener("click", handler);
 
 function handler() {
-  console.log(" skip clicked or time was over");
   option.forEach((opt) => {
     opt.removeEventListener("click", rightEventHandler);
     opt.removeEventListener("click", wrongEventHandler);
